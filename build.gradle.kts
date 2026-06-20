@@ -19,3 +19,10 @@ dependencies {
 tasks.test {
     useJUnitPlatform()
 }
+
+tasks.named<JavaExec>("run") {
+    jvmArgs("--enable-native-access=ALL-UNNAMED")
+    if (System.getProperty("os.name").contains("Mac", ignoreCase = true)) {
+        jvmArgs("-XstartOnFirstThread")
+    }
+}
