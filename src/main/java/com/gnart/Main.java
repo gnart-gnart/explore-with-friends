@@ -30,7 +30,7 @@ public class Main {
         InitWindow(800, 450, "Explore With Friends");
         SetTargetFPS(60);
         Camera3D camera = new Camera3D()
-                ._position(new Vector3(player.position));
+                ._position(new Vector3(player.position))
                 .target(new Vector3())
                 .up(new Vector3().x(0).y(1).z(0))
                 .fovy(45).projection(CAMERA_PERSPECTIVE);
