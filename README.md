@@ -1,6 +1,11 @@
 # Explore with Friends
 > [!IMPORTANT]
 > This project is under construction. Feel free to look around.
+## Run with Gradle
+```bash
+./gradlew run
+```
+
 ## The Planned Stack
 1. I will be using the Java bindings for [Raylib](https://www.raylib.com/), found [here](https://github.com/electronstudio/jaylib/). This is for the graphics and input.
 2. For the networking part of the project, I will likely be using Java networking libraries.
