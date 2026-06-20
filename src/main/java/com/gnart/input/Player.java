@@ -29,9 +29,11 @@ public class Player {
 
     public Body body;
 
-    public Player(Body body) {
-        this.body = body;
+    public Player() {
+        this.body = new Body();
     }
 
-    public void update()
+    public void update() {
+
+    }
 }

@@ -1,6 +1,5 @@
 package com.gnart;
 
-import com.gnart.entity.Body;
 import com.gnart.input.Player;
 import com.raylib.Raylib.Camera3D;
 import static uk.co.electronstudio.jaylib.Jaylib.*;
@@ -9,8 +8,7 @@ public static final float GRAVITY = 32.0f;
 
 public class Main {
     static void main() {
-        Body player = new Body();
-        Player controller = new Player();
+        Player player = new Player();
 
         InitWindow(800, 450, "Explore With Friends");
         SetTargetFPS(60);
@@ -23,7 +21,9 @@ public class Main {
         while (!WindowShouldClose()) {
             // 1. input
 
+
             // 2. update
+            player.update();
             UpdateCamera(camera, CAMERA_ORBITAL);
 
             // 3. render
