@@ -24,6 +24,9 @@ public static final boolean NORMALIZE_INPUT = true;
 
 public class Main {
     static void main() {
+        Body playerBody = new Body();
+        PlayerController controller = new PlayerController();
+
         InitWindow(800, 450, "Demo");
         SetTargetFPS(60);
         Camera3D camera = new Camera3D()
@@ -33,7 +36,12 @@ public class Main {
                 .fovy(45).projection(CAMERA_PERSPECTIVE);
 
         while (!WindowShouldClose()) {
+            // 1. input
+
+            // 2. update
             UpdateCamera(camera, CAMERA_ORBITAL);
+
+            // 3. render
             BeginDrawing();
             ClearBackground(RAYWHITE);
             BeginMode3D(camera);
