@@ -1,5 +1,6 @@
 plugins {
     id("java")
+    id("application")
 }
 
 group = "com.gnart"
@@ -14,6 +15,10 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
     implementation("uk.co.electronstudio.jaylib:jaylib:6.0.+")
+}
+
+application {
+    mainClass.set("com.gnart.Main")
 }
 
 tasks.test {
