@@ -13,7 +13,7 @@
 4. For the network, I plan to implement peer-to-peer connection. Hopefully, I will be able to support several players at once.
 ## Objectives
 ### Phase 1
-- [ ] Get a basic 3D interactive project build up
+- [x] Get a basic 3D project build up
 - [ ] Implement basic FPS style movement
 - [ ] Implement basic walls and collisions
 - [ ] Implement basic lighting
