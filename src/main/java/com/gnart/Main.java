@@ -1,8 +1,10 @@
+package com.gnart;
+
 import static com.raylib.Colors.*;
 import static com.raylib.Raylib.*;
 
 public class Main {
-    public static void main(String args[]) {
+    static void main() {
         InitWindow(800, 450, "Demo");
         SetTargetFPS(60);
         Camera3D camera = new Camera3D()
