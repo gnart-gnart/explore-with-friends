@@ -24,13 +24,13 @@ public static final boolean NORMALIZE_INPUT = true;
 
 public class Main {
     static void main() {
-        Body playerBody = new Body();
+        Body player = new Body();
         PlayerController controller = new PlayerController();
 
-        InitWindow(800, 450, "Demo");
+        InitWindow(800, 450, "Explore With Friends");
         SetTargetFPS(60);
         Camera3D camera = new Camera3D()
-                ._position(new Vector3().x(18).y(16).z(18))
+                ._position(new Vector3(player.position));
                 .target(new Vector3())
                 .up(new Vector3().x(0).y(1).z(0))
                 .fovy(45).projection(CAMERA_PERSPECTIVE);
