@@ -1,7 +1,9 @@
 package com.gnart;
 
-import static com.raylib.Colors.*;
-import static com.raylib.Raylib.*;
+import com.gnart.entity.Body;
+import com.gnart.input.PlayerController;
+import com.raylib.Raylib.Camera3D;
+import static uk.co.electronstudio.jaylib.Jaylib.*;
 
 // Movement constants
 public static final float GRAVITY = 32.0f;
