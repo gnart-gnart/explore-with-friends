@@ -1,7 +1,7 @@
 import static com.raylib.Colors.*;
 import static com.raylib.Raylib.*;
 
-public class Demo {
+public class Main {
     public static void main(String args[]) {
         InitWindow(800, 450, "Demo");
         SetTargetFPS(60);
