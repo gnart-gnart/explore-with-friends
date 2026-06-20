@@ -15,6 +15,7 @@
 ### Phase 1
 - [x] Get a basic 3D project build up
 - [ ] Implement basic FPS style movement
+  - using [this sample code](https://github.com/raysan5/raylib/blob/master/examples/core/core_3d_camera_fps.c) as a reference
 - [ ] Implement basic walls and collisions
 - [ ] Implement basic lighting
 ### Phase 2
