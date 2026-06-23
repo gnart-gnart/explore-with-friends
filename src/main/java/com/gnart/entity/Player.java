@@ -1,6 +1,5 @@
-package com.gnart.input;
+package com.gnart.entity;
 
-import com.gnart.entity.Body;
 import com.raylib.Raylib.Vector2;
 
 public class Player {
