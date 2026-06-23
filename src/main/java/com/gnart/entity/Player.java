@@ -2,7 +2,7 @@ package com.gnart.entity;
 
 import com.raylib.Raylib.Vector2;
 
-public class Player {
+public class Player extends Body {
     // Movement variables
     public float maxSpeed = 20.0f;
     public float crouchSpeed = 5.0f;
@@ -26,10 +26,7 @@ public class Player {
     private float headLerp = standHeight;
     private final Vector2 lean = new Vector2().x(0).y(0);
 
-    public Body body;
-
     public Player() {
-        this.body = new Body();
     }
 
     public void update() {
