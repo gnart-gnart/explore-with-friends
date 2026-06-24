@@ -12,12 +12,12 @@ public class Game {
     public Game() {
         Raylib.InitWindow(800, 450, "Explore With Friends");
         Raylib.SetTargetFPS(60);
+        player = new Player();
         camera = new Raylib.Camera3D()
                 ._position(new Vector3(player.position))
                 .target(new Vector3())
                 .up(new Vector3().x(0).y(1).z(0))
                 .fovy(45).projection(Raylib.CAMERA_PERSPECTIVE);
-        player = new Player();
     }
 
     public void playGame() {
