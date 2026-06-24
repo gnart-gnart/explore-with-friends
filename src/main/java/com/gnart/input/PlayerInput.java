@@ -21,7 +21,7 @@ public class PlayerInput {
         this.crouchHold = false;
     }
 
-    public void getInput() {
+    public void getInputData() {
         if (Raylib.IsKeyDown(Raylib.KEY_W)) {
             forward = 1;
         }
