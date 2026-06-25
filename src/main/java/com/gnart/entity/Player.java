@@ -76,5 +76,21 @@ public class Player extends Body {
         // This is what creates strafing
         float speed = Raylib.Vector3DotProduct(hvel, direction);
 
+        float currentMaxSpeed = input.crouchHold ? crouchSpeed : maxSpeed;
+        float accel = Raylib.Clamp(currentMaxSpeed - speed, 0, maxAccel * delta);
+        hvel.x(hvel.x() + direction.x() * accel);
+        hvel.z(hvel.z() + direction.z() * accel);
+
+        velocity.x(hvel.x());
+        velocity.y(hvel.y());
+        position.x(position.x() + velocity.x() * delta);
+        position.y(position.y() + velocity.y() * delta);
+        position.z(position.z() + velocity.z() * delta);
+
+        if (position.y() <= 0) {
+            position.y(0);
+            velocity.y(0);
+            isGrounded = true;
+        }
     }
 }
