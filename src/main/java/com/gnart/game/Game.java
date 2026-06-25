@@ -14,8 +14,8 @@ public class Game {
     public Game() {
         Raylib.InitWindow(800, 450, "Explore With Friends");
         Raylib.SetTargetFPS(60);
-        player = new Player();
         input = new PlayerInput();
+        player = new Player(input);
         camera = new Raylib.Camera3D()
                 ._position(new Vector3(player.position))
                 .target(new Vector3())
@@ -29,7 +29,7 @@ public class Game {
             input.getInputData();
 
             // 2. update
-            player.update();
+            player.update(Raylib.GetFrameTime());
             Raylib.UpdateCamera(camera, Raylib.CAMERA_ORBITAL);
 
             // 3. render
