@@ -22,25 +22,25 @@ public class PlayerInput {
     }
 
     public void getInput() {
-        if (IsKeyDown(KEY_W)) {
+        if (Raylib.IsKeyDown(Raylib.KEY_W)) {
             forward = 1;
         }
-        else if (IsKeyDown(KEY_S)) {
+        else if (Raylib.IsKeyDown(Raylib.KEY_S)) {
             forward = -1;
         }
         else {
             forward = 0;
         }
-        if (IsKeyDown(KEY_D)) {
+        if (Raylib.IsKeyDown(Raylib.KEY_D)) {
             side = 1;
         }
-        else if (IsKeyDown(KEY_A)) {
+        else if (Raylib.IsKeyDown(Raylib.KEY_A)) {
             side = -1;
         }
         else  {
             side = 0;
         }
-        crouchHold = IsKeyDown(KEY_LEFT_CONTROL)) {
-        jumpPressed = IsKeyPressed(KEY_SPACE);
+        crouchHold = Raylib.IsKeyDown(Raylib.KEY_LEFT_CONTROL);
+        jumpPressed = Raylib.IsKeyPressed(Raylib.KEY_SPACE);
     }
 }
