@@ -1,6 +1,10 @@
 package com.gnart.entity;
 
+import com.gnart.input.PlayerInput;
+import com.raylib.Raylib;
 import com.raylib.Raylib.Vector2;
+import com.raylib.Raylib.Vector3;
+import com.raylib.Helpers;
 
 public class Player extends Body {
     // Movement variables
@@ -26,10 +30,51 @@ public class Player extends Body {
     private float headLerp = standHeight;
     private final Vector2 lean = new Vector2().x(0).y(0);
 
-    public Player() {
+
+    private final float GRAVITY = 32.0f;
+    private final float JUMP_FORCE = 32.0f;
+    private final float CONTROL = 32.0f;
+
+
+    private PlayerInput input;
+    Vector2 inputVector;
+
+    public Player(PlayerInput input) {
+        this.input = input;
     }
 
-    public void update() {
+    public void update(float delta) {
+        lookRotation.x(lookRotation.x() - input.mouseDelta.x() * sensitivity.x());
+        lookRotation.y(lookRotation.y() - input.mouseDelta.y() * sensitivity.y());
+        inputVector = Helpers.newVector2(input.side, -input.forward);
+        if (normalizeInput && input.side != 0 && input.forward != 0) {
+            inputVector = Raylib.Vector2Normalize(inputVector);
+        }
+        if (!isGrounded) {
+            velocity.y(velocity.y() - GRAVITY * delta);
+        }
+        if (isGrounded && input.jumpPressed) {
+            velocity.y(jumpForce);
+            isGrounded = false;
+        }
+
+        float lookX = lookRotation.x();
+        Vector3 front = Helpers.newVector3((float)Math.sin(lookX), 0, (float)Math.cos(lookX));
+        Vector3 right = Helpers.newVector3((float)Math.sin(-lookX), 0, (float)Math.cos(-lookX));
+
+        Vector3 desiredDirection = Helpers.newVector3(inputVector.x() * right.x() + inputVector.y() * front.x(),
+                0, inputVector.x() * right.z() + inputVector.y() * front.z());
+        direction = Raylib.Vector3Lerp(direction, desiredDirection, control * delta);
+
+        float deceleration = (isGrounded) ? friction : airDrag;
+        Vector3 hvel = Helpers.newVector3(velocity.x() * deceleration, 0, velocity.z() * deceleration);
+
+        float hvelLength = Raylib.Vector3Length(hvel); // Magnitude
+        if (hvelLength < (maxSpeed * 0.01f)) {
+            hvel = Helpers.newVector3(0,0,0);
+        }
+        // This is what creates strafing
+        float speed = Raylib.Vector3DotProduct(hvel, direction);
 
     }
 }
