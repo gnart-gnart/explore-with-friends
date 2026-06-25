@@ -4,10 +4,10 @@ import com.gnart.input.Player;
 import com.raylib.Raylib.Camera3D;
 import static uk.co.electronstudio.jaylib.Jaylib.*;
 
-public static final float GRAVITY = 32.0f;
-
 public class Main {
-    static void main() {
+    public static final float GRAVITY = 32.0f;
+
+    public static void main(String[] args) {
         Player player = new Player();
 
         InitWindow(800, 450, "Explore With Friends");
