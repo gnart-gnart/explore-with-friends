@@ -1,6 +1,7 @@
 package com.gnart.input;
 
 import com.raylib.Raylib;
+import com.raylib.Raylib.Vector2;
 
 /**
  * A lightweight data snapshot representing the player's intentional
@@ -13,6 +14,7 @@ public class PlayerInput {
     public byte side;
     public boolean jumpPressed;
     public boolean crouchHold;
+    public Vector2 mouseDelta;
 
     public PlayerInput() {
         this.forward = 0;
@@ -22,6 +24,7 @@ public class PlayerInput {
     }
 
     public void getInputData() {
+        mouseDelta = Raylib.GetMouseDelta();
         if (Raylib.IsKeyDown(Raylib.KEY_W)) {
             forward = 1;
         }
